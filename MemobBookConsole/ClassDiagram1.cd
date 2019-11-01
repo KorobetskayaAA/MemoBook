@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MemoBookConsole.ConsoleDialogFileNote">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACCAAAAAQAAAAAAAAAAAAAEIAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleDialogFileNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemoBookConsole.ConsoleNoteWindow">
+    <Position X="5.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAIBAAAAQAAACAIAAAAAQACAAIAAAAAACA=</HashCode>
+      <FileName>ConsoleNoteWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemoBookConsole.MemoBookTUI">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="MemoBookConsole.MemoBookTUI.KeyOption" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MemoBookTUI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQgIAAABAQAAAMAAAgAAAAAAAAhAAAgwAACAIABAAI=</HashCode>
+      <FileName>MemoBookTUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

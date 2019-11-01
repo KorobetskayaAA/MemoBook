@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleInterface.ConsoleHelper" Collapsed="true">
+    <Position X="4.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAEAAAAQAAAAABAAAAAgAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>ConsoleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.EnumExtenders" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EnumExtenders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.ConsoleDialog" Collapsed="true">
+    <Position X="9" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAEAAAAAAAAIQAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Windows\ConsoleDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.ConsoleDialogFileName" Collapsed="true">
+    <Position X="8.75" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAAAA=</HashCode>
+      <FileName>Windows\ConsoleDialogFileName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.ConsoleDialogYesNo" Collapsed="true">
+    <Position X="11" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAA=</HashCode>
+      <FileName>Windows\ConsoleDialogYesNo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.ConsoleMessageDialog" Collapsed="true">
+    <Position X="6.5" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAAAAAYAAAAAA=</HashCode>
+      <FileName>Windows\ConsoleMessageDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.ConsoleWindow" Collapsed="true">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEAAAhEAgCAgAAUAQAFkAiAAMAAAgiAKgSACAACA=</HashCode>
+      <FileName>Windows\ConsoleWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.Buttons" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAKEAAIEQAAAAAAAAEgIAAEAAAAAA=</HashCode>
+      <FileName>Controls\Buttons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.ColoredDataGrid" Collapsed="true">
+    <Position X="12.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ColoredDataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.Control" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMBBAAAAAAACCQAEAAAAIIAAAArACAAAAEAAI=</HashCode>
+      <FileName>Controls\Control.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.DataGrid" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIAAQAIAAAREIiAEgAgAAAAFBAgAgAAAgwABA=</HashCode>
+      <FileName>Controls\DataGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputCheck" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Controls\InputCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputColor" Collapsed="true">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Controls\InputColor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputControl" Collapsed="true">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAFAAAAgAIAAAAAGAAEAAAACAA4CAgAQAAAAA=</HashCode>
+      <FileName>Controls\InputControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputDateTime" Collapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJBAAgAAAAACAAAAAAAQIACIECAAgAQAAAAA=</HashCode>
+      <FileName>Controls\InputDateTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputFileName" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\InputFileName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputList" Collapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAgBAgAQAQAAA=</HashCode>
+      <FileName>Controls\InputList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputNumber" Collapsed="true">
+    <Position X="13" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAIAAAAAAAAACAAgAAgAQAAAAA=</HashCode>
+      <FileName>Controls\InputNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.InputTextArea" Collapsed="true">
+    <Position X="4.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAEEAAKoBAAAQAAAAA=</HashCode>
+      <FileName>Controls\InputTextArea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleInterface.Controls.TextBlock" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controls\TextBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ConsoleInterface.Controls.Button" Collapsed="true">
+    <Position X="4.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAQAAAAAAAAAAAAACAAAAAAAAABAAEAAAA=</HashCode>
+      <FileName>Controls\EnumButton.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConsoleInterface.Controls.Dock" Collapsed="true">
+    <Position X="6" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAICAAACACAAAEIAAA=</HashCode>
+      <FileName>Controls\EnumDock.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

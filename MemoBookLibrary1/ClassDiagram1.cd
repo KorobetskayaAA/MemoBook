@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MemoBookLibrary.Memo">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAACAAAAAAAAABAECBACAAAAAAAAAAAAgAECiAAABAA=</HashCode>
+      <FileName>Memo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Priority" />
+      <Property Name="Phase" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MemoBookLibrary.MemoBook">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIEAARAAAAACAEAACQAAAgAAAAAAAAAAABABAA=</HashCode>
+      <FileName>MemoBook.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="memos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="MemoBookLibrary.Phase" Collapsed="true">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Phase.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MemoBookLibrary.Priority" Collapsed="true">
+    <Position X="1.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAABAAAAAAAAAAAAQAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Priority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
