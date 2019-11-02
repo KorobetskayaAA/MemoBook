@@ -14,23 +14,33 @@ namespace MemoBookConsole
     /// </summary>
     class MemoBookTUI
     {
+        // Сама записная книжка и таблица для ее отображения
         MemoBook memoBook;
         ColoredDataGrid memoGrid;
 
         public MemoBookTUI()
         {
+            // Создаем вложенные объекты.
             memoBook = new MemoBook();
             memoGrid = new ColoredDataGrid(0, 1, 
                 Console.WindowWidth, Console.WindowHeight - 2);
+            // Инициализация таблицы и клавш управления
             AssignDataGrid();
             AssignDefaultKeyOptions();
         }
 
+        /// <summary>
+        /// Автозагрузка из указанного файла.
+        /// </summary>
+        /// <param name="fileName"></param>
         public MemoBookTUI(string fileName) : this()
         {
             memoBook.ImportFromFile(fileName);
         }
 
+        /// <summary>
+        /// Описание клавиши для управления программой и отображения в меню.
+        /// </summary>
         struct KeyOption
         {
             //public ConsoleKey Key;
@@ -46,7 +56,14 @@ namespace MemoBookConsole
             }
         }
 
+        /// <summary>
+        /// Словарь с задействованными клавишами управления и их описанием.
+        /// </summary>
         Dictionary<ConsoleKey, KeyOption> keyOptions = new Dictionary<ConsoleKey, KeyOption>();
+
+        /// <summary>
+        /// Связывание клавиш управления с их описанием и методом обработки нажатия.
+        /// </summary>
         void AssignDefaultKeyOptions()
         {
             keyOptions.Add(ConsoleKey.F1, new KeyOption("F1", "Помоги", KeyActionHelp));
@@ -59,6 +76,10 @@ namespace MemoBookConsole
             keyOptions.Add(ConsoleKey.Escape, new KeyOption("Esc", "Выйди", KeyActionExit));
         }
 
+        /// <summary>
+        /// Вывод пункта меню ка экран.
+        /// </summary>
+        /// <param name="keyOption">С какой клавишей связан.</param>
         void ShowMenuItem(KeyOption keyOption)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -67,6 +88,9 @@ namespace MemoBookConsole
             Console.Write(keyOption.Description);
         }
 
+        /// <summary>
+        /// Вывод меню в верхней части окна.
+        /// </summary>
         void ShowMenu()
         {
             Console.BackgroundColor = ConsoleColor.Blue;
@@ -80,6 +104,9 @@ namespace MemoBookConsole
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Создать столбцы в таблице данных и связать их с ежедневником.
+        /// </summary>
         void AssignDataGrid()
         {
             memoGrid.Data = memoBook.Memos;
@@ -113,9 +140,12 @@ namespace MemoBookConsole
             });
             memoGrid.GetRowColor = mm => 
                 ConsoleHelper.RgbToCosoleColor((mm as Memo).Color);
-
         }
 
+        /// <summary>
+        /// Запуск консольного интерфейса.
+        /// Работает в цикле, пока не будет нажата клавиша выхода.
+        /// </summary>
         public void Run()
         {
             do
@@ -128,7 +158,10 @@ namespace MemoBookConsole
             } while (ProcessKey());
         }
 
-
+        /// <summary>
+        /// Обработка нажатия клавиши.
+        /// </summary>
+        /// <returns>Возвращает True, если обработка завершена и можно закрыть интерфейс.</returns>
         public bool ProcessKey()
         {
             ConsoleKeyInfo pressed = Console.ReadKey();
@@ -149,11 +182,17 @@ namespace MemoBookConsole
             return true;
         }
 
+        /// <summary>
+        /// Выход из приложения.
+        /// </summary>
         void KeyActionExit()
         {
             //Do nothing
         }
 
+        /// <summary>
+        /// Вывод окна с краткой информации об управлении.
+        /// </summary>
         void KeyActionHelp()
         {
             var helpWindow = new ConsoleMessageDialog("Справка", 
@@ -171,12 +210,24 @@ namespace MemoBookConsole
             helpWindow.Show();
         }
 
+        /// <summary>
+        /// Добавить новую заметку.
+        /// Отображает окно для ввода и редактирования данных,
+        /// заметка будет добавлена только если пользователь подтвердит ввод.
+        /// </summary>
         void KeyActionAddNote()
         {
-            memoBook.AddMemo(DateTime.Now.AddDays(1), "Заметка");
-            memoGrid.SelectLast();
+            var editWindow = new ConsoleNoteWindow(memoBook[memoGrid.SelectedRow]);
+            if (editWindow.ShowModal() == Button.OK)
+            {
+                memoBook.AddMemo(editWindow.Memo);
+                memoGrid.SelectLast();
+            }
         }
 
+        /// <summary>
+        /// Удаление заметки. Будет выведено окно для подтверждения действия.
+        /// </summary>
         void KeyActionDeleteNote()
         {
             if (memoBook.Count == 0)
@@ -195,6 +246,9 @@ namespace MemoBookConsole
             }
         }
 
+        /// <summary>
+        /// Вывод окна для редактирования выделенной заметки.
+        /// </summary>
         void KeyActionEditNote()
         {
             if (memoBook.Count == 0)
@@ -204,6 +258,9 @@ namespace MemoBookConsole
             new ConsoleNoteWindow(memoBook[memoGrid.SelectedRow]).ShowModal();
         }
 
+        /// <summary>
+        /// Выполнить сортировку по выбранному столбцу.
+        /// </summary>
         void KeyActionSort()
         {
             memoGrid.OnSort();
@@ -211,6 +268,11 @@ namespace MemoBookConsole
                 memoGrid.SortDecreasing);
         }
 
+        /// <summary>
+        /// Сохранить заметки в указанный файл.
+        /// Можно выбрать диапазон дат для сохранения.
+        /// Если файл существует, он будет перезаписан без дополнительного запроса.
+        /// </summary>
         void KeyActionSave()
         {
             try
@@ -235,6 +297,12 @@ namespace MemoBookConsole
             }
         }
 
+        /// <summary>
+        /// Загрузка данных из файла.
+        /// Можно удалить существующие записи, полностью заменив заметки, или
+        /// добавить новые заметки в конец ежедневника.
+        /// Можно выбрать диапазон дат для загрузки.
+        /// </summary>
         void KeyActionLoad()
         {
             try
@@ -279,6 +347,11 @@ namespace MemoBookConsole
             }
         }
 
+        /// <summary>
+        /// Вывод сообщения для подтверждения действия.
+        /// </summary>
+        /// <param name="message">Текст сообщения (вопрос к пользователю)</param>
+        /// <returns>Возвращает true, если пользователь выбрал ДА</returns>
         bool DialogYesNo(string message)
         {
             return new ConsoleDialogYesNo("Вопрос", message).ShowModal();

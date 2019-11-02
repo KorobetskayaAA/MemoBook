@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Элемент управления для ввода многострочного текста.
+    /// </summary>
     public class InputTextArea : InputControl
     {
 

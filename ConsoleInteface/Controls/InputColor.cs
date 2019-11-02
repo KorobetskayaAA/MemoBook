@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Выбор цвета из списка консольных цветов.
+    /// </summary>
     public class InputColor : InputList
     {
         public ConsoleColor Color

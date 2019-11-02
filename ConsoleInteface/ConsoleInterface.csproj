@@ -49,8 +49,6 @@
     <Compile Include="Controls\EnumAlignment.cs" />
     <Compile Include="Controls\EnumButton.cs" />
     <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Controls\EnumDock.cs" />
-    <Compile Include="Controls\InputCheck.cs" />
     <Compile Include="Controls\InputColor.cs" />
     <Compile Include="Controls\InputControl.cs" />
     <Compile Include="Controls\InputDateTime.cs" />

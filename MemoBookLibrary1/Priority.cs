@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace MemoBookLibrary
 {
     /// <summary>
-    /// Уровень важности замеки.
+    /// Уровень важности заметки.
     /// </summary>
     public enum Priority {
         [Description("Важно")]

@@ -3,6 +3,10 @@ using ConsoleInterface.Controls;
 
 namespace ConsoleInterface
 {
+    /// <summary>
+    /// Консольное диалоговое псевдоокно для вывода информационных сообщений.
+    /// Содержит текст сообщения и кнопку ОК.
+    /// </summary>
     public class ConsoleMessageDialog : ConsoleDialog
     {
         public ConsoleMessageDialog(string header, string message, Button[] buttons)

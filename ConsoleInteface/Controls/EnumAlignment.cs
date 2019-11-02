@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Выравнивание данных.
+    /// </summary>
     public enum Alignment
     {
         Left, Center, Right

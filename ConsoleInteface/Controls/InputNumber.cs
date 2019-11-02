@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Элемент управления для выбора значения из заданного диапазона.
+    /// Работает по принципу списка.
+    /// </summary>
     public class InputNumber : InputControl
     {
         public InputNumber(string label, int minValue, int maxValue, 

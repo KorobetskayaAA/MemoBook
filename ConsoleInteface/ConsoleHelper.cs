@@ -7,6 +7,9 @@ using System.Drawing;
 
 namespace ConsoleInterface
 {
+    /// <summary>
+    /// Общеупотребительные статические методы для вывода информации в консоль.
+    /// </summary>
     public class ConsoleHelper
     {
         /// <summary>
@@ -70,6 +73,13 @@ namespace ConsoleInterface
             return lines.ToArray();
         }
 
+        /// <summary>
+        /// Выводит предварительно разбитый на строки текст по центру заданного региона.
+        /// Контроль длины строк не производится.
+        /// </summary>
+        /// <param name="lines">Строки текста, каждая строка должна быть не длиннее width</param>
+        /// <param name="left">Отступ от края окна слева</param>
+        /// <param name="width">Ширина региона для центрирования</param>
         public static void WriteCentered(string[] lines, int left = 0, int width = -1)
         {
             if (width < 0)
@@ -85,6 +95,14 @@ namespace ConsoleInterface
             }
         }
 
+        /// <summary>
+        /// Выводит заданный текст по центру по центру заданного региона.
+        /// Текст будет разюит на строки по символу \n и пробелм так, чтобы умещаться
+        /// в заданную ширину.
+        /// </summary>
+        /// <param name="text">Исходный текст, может быть многострочным</param>
+        /// <param name="left">Отступ от края окна слева</param>
+        /// <param name="width">Ширина региона для центрирования</param>
         public static void WriteCentered(string text, int left = 0, int width = -1)
         {
             if (width < 0)
@@ -126,6 +144,11 @@ namespace ConsoleInterface
             return (ConsoleColor)index;
         }
 
+        /// <summary>
+        /// Преобразовать консольный цвет в RGB
+        /// </summary>
+        /// <param name="consoleColor"></param>
+        /// <returns></returns>
         public static Color CosoleColorToRgb(ConsoleColor consoleColor)
         {
             int index = (int)consoleColor;

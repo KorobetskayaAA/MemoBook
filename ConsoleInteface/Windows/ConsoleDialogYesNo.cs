@@ -3,6 +3,10 @@ using ConsoleInterface.Controls;
 
 namespace ConsoleInterface
 {
+    /// <summary>
+    /// Диалоговое окно для подтверждения или отмены действия.
+    /// Содержит вопрос и кнопки с вариантами ДА/НЕТ.
+    /// </summary>
     public class ConsoleDialogYesNo : ConsoleDialog
     {
         public ConsoleDialogYesNo(string header, string message)

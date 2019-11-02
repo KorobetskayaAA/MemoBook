@@ -21,6 +21,7 @@ namespace MemoBookConsole
     //#################################################
     //Важность:      Этап:          Цвет:
     //<Нужно   >     <В работе   >  <##DarkGreen >
+    //          OK                  Отмена
 
     
     /// <summary>
@@ -28,8 +29,15 @@ namespace MemoBookConsole
     /// </summary>
     class ConsoleNoteWindow : ConsoleDialog
     {
-        Memo Memo { get; set; }
+        /// <summary>
+        /// Заметка, с которой работаем.
+        /// </summary>
+        public Memo Memo { get; }
 
+        /// <summary>
+        /// Конструктор для редактирования существующей заметки
+        /// </summary>
+        /// <param name="memo">Заметка, которую будем редактировать</param>
         public ConsoleNoteWindow(Memo memo)
             : base("Заметка №" + memo.Id, new Button[] { Button.OK, Button.Cancel })
         {
@@ -37,6 +45,9 @@ namespace MemoBookConsole
             InitializeControls();
         }
 
+        /// <summary>
+        /// Конструктор для создания новой заметки и ввода ее свойств.
+        /// </summary>
         public ConsoleNoteWindow()
             : base("Новая заметка", new Button[] { Button.OK, Button.Cancel })
         {
@@ -44,20 +55,27 @@ namespace MemoBookConsole
             InitializeControls();
         }
 
+        // Элементы управления для ввода и редактирования
         InputControl inputHeader;
         InputDateTime inputDeadline;
-        const int textHeight = 5;
         InputTextArea inputText;
+        const int textHeight = 5;
         InputList inputPriority;
         InputList inputPhase;
         InputColor inputColor;
 
+        /// <summary>
+        /// Инициализация компонентов и их размещение на форме.
+        /// </summary>
         protected override void InitializeControls()
         {
+            // Этот метод может вызываться несколько раз, но сработает только после 
+            // связывания с Memo
             if (Memo == null)
             {
                 return;
             }
+            // Фиксированный размер окна
             this.ContentWidth = 50;
             this.ContentHeight = 5 + textHeight + 3;
 
@@ -119,6 +137,10 @@ namespace MemoBookConsole
             base.InitializeControls();
         }
 
+        /// <summary>
+        /// При закртыии окна, если подтвержден ввод,
+        /// переносим данные из элементов управления в Memo.
+        /// </summary>
         protected override void OnClose()
         {
             if (ModalResult == Button.OK)

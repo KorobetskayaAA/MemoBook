@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Элемент управления для вывода текстовой информации без возможности ввода.
+    /// </summary>
     class TextBlock : Control
     {
         public TextBlock(int left, int top, int width, string text) :

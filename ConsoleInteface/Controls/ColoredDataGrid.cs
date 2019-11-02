@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Таблица данных, в которой каждой строке задан цвет.
+    /// </summary>
     public class ColoredDataGrid : DataGrid
     {
         public ColoredDataGrid(int left, int top, int width, int height) :

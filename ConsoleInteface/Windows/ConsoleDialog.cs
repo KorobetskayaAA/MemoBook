@@ -7,7 +7,7 @@ using ConsoleInterface.Controls;
 namespace ConsoleInterface
 {
     /// <summary>
-    /// Консольное диалоговое окно, содержащее набор кнопок и способное
+    /// Консольное диалоговое псевдоокно, содержащее набор кнопок и способное
     /// возвращать нажатую пользователем кнопку.
     /// </summary>
     public class ConsoleDialog : ConsoleWindow

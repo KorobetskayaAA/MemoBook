@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Элемент управления для выбора значения из списка.
+    /// </summary>
     public class InputList : InputControl
     {
         public InputList(string label, List<string> items, int left, int top, int width)

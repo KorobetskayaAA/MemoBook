@@ -2,6 +2,9 @@
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Выбор одной из нескольких кнопок.
+    /// </summary>
     public class Buttons : Control
     {
 

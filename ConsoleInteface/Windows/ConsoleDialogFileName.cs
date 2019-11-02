@@ -5,7 +5,7 @@ using ConsoleInterface.Controls;
 namespace ConsoleInterface
 {
     /// <summary>
-    /// Диалогоговое окно для выбора файла.
+    /// Консольное диалогоговое псвдоокно для выбора файла.
     /// </summary>
     public class ConsoleDialogFileName : ConsoleDialog
     {

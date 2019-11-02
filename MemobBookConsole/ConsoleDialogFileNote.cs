@@ -9,11 +9,15 @@ using ConsoleInterface.Controls;
 namespace MemoBookConsole
 {
     /// <summary>
-    /// Окно для выбора файла для загрузки/сохранения, и, при необходимости, -
+    /// Консольное псевдоокно для выбора файла для загрузки/сохранения, и, при необходимости, -
     /// диапазона сроков записей.
     /// </summary>
     class ConsoleDialogFileNote : ConsoleDialogFileName
     {
+        /// <summary>
+        /// Стандартный конструктор, выполняет инициализацию элементов управления.
+        /// </summary>
+        /// <param name="header">Заголовок псевдоокна.</param>
         public ConsoleDialogFileNote(string header) :
             base(header)
         {
@@ -59,7 +63,7 @@ namespace MemoBookConsole
         InputDateTime InputTo { get; }
 
         /// <summary>
-        /// Нужно фильтровать заметки по диапазону срока.
+        /// Нужно ли фильтровать заметки по диапазону дат.
         /// </summary>
         public bool HasDateRange { get => InputHasDateRange.SelectedItem > 0; }
         /// <summary>

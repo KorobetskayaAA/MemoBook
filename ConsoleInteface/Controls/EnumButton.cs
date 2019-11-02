@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Варианты кнопок для диалоговых окон.
+    /// </summary>
     public enum Button
     {
         None,

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace MemoBookLibrary
 {
     /// <summary>
-    /// Этап выполнения
+    /// Этап выполнения задачи
     /// </summary>
     public enum Phase
     {

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Таблица с данными. Подгрузка данных осуществляется через делегаты для каждого столбца.
+    /// </summary>
     public class DataGrid : Control
     {
         public DataGrid(int left, int top, int width, int height) :
@@ -36,6 +39,9 @@ namespace ConsoleInterface.Controls
             get => FirstVisibleRow + VisibleRowsCount;
         }
 
+        /// <summary>
+        /// Настройки столбца таблицы.
+        /// </summary>
         public struct Column
         {
             public string Header;

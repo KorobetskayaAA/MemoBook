@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Элемент управления для выбора даты и времени.
+    /// Композит из отдельных элментов управления для выбора дня, месяца, года, часа и минут.
+    /// </summary>
     public class InputDateTime : InputControl
     {
         public InputDateTime(string label, int left, int top)

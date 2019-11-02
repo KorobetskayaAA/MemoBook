@@ -51,6 +51,16 @@ namespace MemoBookLibrary
 
         /// <summary>
         /// Добавить новую заметку в дневник.
+        /// Контроль, есть ли эта заметка в дневнике, не производится.
+        /// </summary>
+        /// <param name="newMemo">Заметка для добавления</param>
+        public void AddMemo(Memo newMemo)
+        {
+            memos.Add(newMemo);
+        }
+
+        /// <summary>
+        /// Добавить новую заметку в дневник.
         /// </summary>
         /// <param name="deadline">Срок выполнения</param>
         /// <param name="header">Тема (краткое описание)</param>

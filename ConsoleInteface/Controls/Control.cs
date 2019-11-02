@@ -2,6 +2,9 @@
 
 namespace ConsoleInterface.Controls
 {
+    /// <summary>
+    /// Абстрактный класс для элементов управления в консольных псевдоокнах.
+    /// </summary>
     public abstract class Control
     {
         public Control(int left, int top, int width)
