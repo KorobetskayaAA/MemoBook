@@ -30,15 +30,12 @@ namespace MemoBookLibrary
         }
 
         /// <summary>
-        /// Конструктор за заданным сроком выполнения и темой заметки.
+        /// Конструктор с заданным сроком выполнения и темой заметки.
         /// </summary>
         /// <param name="deadline">Срок выполнения</param>
         /// <param name="header">Тема (краткое описание)</param>
-        public Memo(DateTime deadline, string header) : this()
-        {
-            this.Deadline = deadline;
-            this.Header = header;
-        }
+        public Memo(DateTime deadline, string header) : this() =>
+            (Deadline, Header) = (deadline, header);
 
         /// <summary>
         /// Используется для уникальных идентификаторов заметок в пределах сессии.
@@ -106,14 +103,8 @@ namespace MemoBookLibrary
         [DisplayName("Цвет")]
         public string ColorName
         {
-            get
-            {
-                return Color.ToArgb().ToString();
-            }
-            set
-            {
-                Color = Color.FromArgb(int.Parse(value));
-            }
+            get => Color.ToArgb().ToString();
+            set => Color = Color.FromArgb(int.Parse(value));
         }
 
         /// <summary>

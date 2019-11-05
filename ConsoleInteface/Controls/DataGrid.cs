@@ -169,13 +169,13 @@ namespace ConsoleInterface.Controls
 
         void MoveByRows(int i)
         {
-            i = i % RowsCount;
+            i %= RowsCount;
             SelectedRow = (RowsCount + SelectedRow + i) % RowsCount;
         }
 
         void MoveByColumns(int j)
         {
-            j = j % Columns.Count;
+            j %= Columns.Count;
             SelectedColumn = (Columns.Count + SelectedColumn + j) % Columns.Count;
         }
 

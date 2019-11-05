@@ -7,6 +7,8 @@ using MemoBookLibrary;
 using ConsoleInterface;
 using ConsoleInterface.Controls;
 
+#nullable enable
+
 namespace MemoBookConsole
 {
     /// <summary>
@@ -15,8 +17,8 @@ namespace MemoBookConsole
     class MemoBookTUI
     {
         // Сама записная книжка и таблица для ее отображения
-        MemoBook memoBook;
-        ColoredDataGrid memoGrid;
+        readonly MemoBook memoBook;
+        readonly ColoredDataGrid memoGrid;
 
         public MemoBookTUI()
         {
@@ -59,7 +61,7 @@ namespace MemoBookConsole
         /// <summary>
         /// Словарь с задействованными клавишами управления и их описанием.
         /// </summary>
-        Dictionary<ConsoleKey, KeyOption> keyOptions = new Dictionary<ConsoleKey, KeyOption>();
+        readonly Dictionary<ConsoleKey, KeyOption> keyOptions = new Dictionary<ConsoleKey, KeyOption>();
 
         /// <summary>
         /// Связывание клавиш управления с их описанием и методом обработки нажатия.
@@ -114,32 +116,33 @@ namespace MemoBookConsole
             {
                 new DataGrid.Column {
                     Header = "№", Name = "Id",
-                    GetData = mm => (mm as Memo).Id.ToString(),
+                    GetData = mm => (mm as Memo)?.Id.ToString() ?? "",
                     Width = 3
                 },
                 new DataGrid.Column {
                     Header = "Этап", Name = "Phase",
-                    GetData = mm => (mm as Memo).Phase.GetDescription(),
+                    GetData = mm => (mm as Memo)?.Phase.GetDescription() ?? "",
                     Width = 9
                 },
                 new DataGrid.Column {
                     Header = "Дедлайн", Name = "Deadline",
-                    GetData = mm => string.Format("{0:dd.MM.yy HH:mm}", (mm as Memo).Deadline),
+                    GetData = mm => mm == null ? "" :
+                        string.Format("{0:dd.MM.yy HH:mm}", (mm as Memo)!.Deadline),
                     Width = 15
                 },
                 new DataGrid.Column {
                     Header = "Тема", Name = "Header",
-                    GetData = mm => (mm as Memo).Header,
+                    GetData = mm => (mm as Memo)?.Header ?? "Пусто",
                     Width = -1
                 },
                 new DataGrid.Column {
                     Header = "Важность", Name = "Priority",
-                    GetData = mm => (mm as Memo).Priority.GetDescription(),
+                    GetData = mm => (mm as Memo)?.Priority.GetDescription() ?? "",
                     Width = 9
                 }
             });
             memoGrid.GetRowColor = mm => 
-                ConsoleHelper.RgbToCosoleColor((mm as Memo).Color);
+                ConsoleHelper.RgbToCosoleColor((mm as Memo)?.Color ?? Memo.DEFAULT_COLOR);
         }
 
         /// <summary>
@@ -195,7 +198,7 @@ namespace MemoBookConsole
         /// </summary>
         void KeyActionHelp()
         {
-            var helpWindow = new ConsoleMessageDialog("Справка", 
+            var helpWindow = new ConsoleMessageDialog("Справка",
                 "В ежедневнике:\n" +
                 "  Стрелки, Home, End, PageUp, PageDown - перемещение по таблице\n" +
                 "  Другие клавиши указаны в меню\n" +
@@ -205,8 +208,10 @@ namespace MemoBookConsole
                 "  Esc - закрыть окно\n" +
                 "  Enter - нажать выбранную кнопку\n" +
                 "",
-                new[] { Button.OK });
-            helpWindow.Align = Alignment.Left;
+                new[] { Button.OK })
+            {
+                Align = Alignment.Left
+            };
             helpWindow.Show();
         }
 

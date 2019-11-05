@@ -7,6 +7,8 @@ using MemoBookLibrary;
 using ConsoleInterface;
 using ConsoleInterface.Controls;
 
+#nullable enable
+
 namespace MemoBookConsole
 {
 
@@ -38,43 +40,18 @@ namespace MemoBookConsole
         /// Конструктор для редактирования существующей заметки
         /// </summary>
         /// <param name="memo">Заметка, которую будем редактировать</param>
-        public ConsoleNoteWindow(Memo memo)
-            : base("Заметка №" + memo.Id, new Button[] { Button.OK, Button.Cancel })
-        {
-            Memo = memo;
-            InitializeControls();
-        }
+        public ConsoleNoteWindow(Memo memo) : this("Заметка №" + memo.Id, memo) {}
 
         /// <summary>
         /// Конструктор для создания новой заметки и ввода ее свойств.
         /// </summary>
-        public ConsoleNoteWindow()
-            : base("Новая заметка", new Button[] { Button.OK, Button.Cancel })
-        {
-            Memo = new Memo();
-            InitializeControls();
-        }
+        public ConsoleNoteWindow() : this("Новая заметка", new Memo()) {}
 
-        // Элементы управления для ввода и редактирования
-        InputControl inputHeader;
-        InputDateTime inputDeadline;
-        InputTextArea inputText;
-        const int textHeight = 5;
-        InputList inputPriority;
-        InputList inputPhase;
-        InputColor inputColor;
-
-        /// <summary>
-        /// Инициализация компонентов и их размещение на форме.
-        /// </summary>
-        protected override void InitializeControls()
+        // Конструктор для инициализации полей.
+        private ConsoleNoteWindow(string header, Memo memo)
+            : base(header, new Button[] { Button.OK, Button.Cancel })
         {
-            // Этот метод может вызываться несколько раз, но сработает только после 
-            // связывания с Memo
-            if (Memo == null)
-            {
-                return;
-            }
+            Memo = memo;
             // Фиксированный размер окна
             this.ContentWidth = 50;
             this.ContentHeight = 5 + textHeight + 3;
@@ -107,7 +84,7 @@ namespace MemoBookConsole
 
             inputPriority = new InputList("Важность:",
                 EnumExtenders.GetDescriptions<Priority>(),
-                ContentLeft, inputText.Bottom + 1, 
+                ContentLeft, inputText.Bottom + 1,
                 2 + EnumExtenders.GetDescriptions<Priority>().Select(s => s.Length).Max()
             )
             {
@@ -133,9 +110,16 @@ namespace MemoBookConsole
                 Color = ConsoleHelper.RgbToCosoleColor(Memo.Color)
             };
             Controls.Add(inputColor);
-
-            base.InitializeControls();
         }
+
+        // Элементы управления для ввода и редактирования
+        readonly InputControl inputHeader;
+        readonly InputDateTime inputDeadline;
+        readonly InputTextArea inputText;
+        const int textHeight = 5;
+        readonly InputList inputPriority;
+        readonly InputList inputPhase;
+        readonly InputColor inputColor;
 
         /// <summary>
         /// При закртыии окна, если подтвержден ввод,

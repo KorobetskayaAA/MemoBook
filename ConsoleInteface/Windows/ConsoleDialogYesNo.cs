@@ -15,15 +15,15 @@ namespace ConsoleInterface
             this.Message = new TextBlock(ContentLeft, ContentTop, ContentWidth,
                 message);
             Controls.Insert(0, Message);
-            Controls[1].Width = Message.Width;
             foreach (var control in Controls)
             {
+                control.Width = Message.Width;
                 control.Left = Left + 1;
             }
             ActiveControl = 1;
         }
 
-        TextBlock Message;
+        readonly TextBlock Message;
 
         public override int ContentWidth
         {

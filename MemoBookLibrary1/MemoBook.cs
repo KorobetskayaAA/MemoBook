@@ -20,7 +20,6 @@ using System.Xml.Serialization;
 /// - Импорт записей по выбранному диапазону дат
 /// - Упорядочивания записей ежедневника по выбранному полю
 
-
 namespace MemoBookLibrary
 {
     /// <summary>
@@ -36,11 +35,16 @@ namespace MemoBookLibrary
         /// </summary>
         public List<Memo> Memos { get => memos; }
 
-        public Memo this [int index]
+        public Memo this[int index]
         {
             get
             {
-                return Memos[index];
+                if (Memos.Count == 0)
+                {
+                    return null;
+                }
+                index %= Memos.Count;
+                return Memos[(Memos.Count + index) % Memos.Count];
             }
         }
 
@@ -114,10 +118,8 @@ namespace MemoBookLibrary
         public void ExportToFile(string fileName)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Memo>));
-            using (FileStream fs = new FileStream(fileName, FileMode.Create))
-            {
-               serializer.Serialize(fs, memos);
-            }
+            using FileStream fs = new FileStream(fileName, FileMode.Create);
+            serializer.Serialize(fs, memos);
         }
 
         /// <summary>
@@ -129,11 +131,8 @@ namespace MemoBookLibrary
         public void ExportToFile(string fileName, DateTime startDate, DateTime endDate)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Memo>));
-            using (FileStream fs = new FileStream(fileName, FileMode.Create))
-            {
-                serializer.Serialize(fs, 
-                    memos.Where(mm => mm.IsInDateRange(startDate, endDate)));
-            }
+            using FileStream fs = new FileStream(fileName, FileMode.Create);
+            serializer.Serialize(fs, memos.Where(mm => mm.IsInDateRange(startDate, endDate)));
         }
 
         /// <summary>
@@ -144,10 +143,8 @@ namespace MemoBookLibrary
         List<Memo> DeserializeFromFile(string fileName)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Memo>));
-            using (FileStream fs = new FileStream(fileName, FileMode.Open))
-            {
-                return serializer.Deserialize(fs) as List<Memo>;
-            }
+            using FileStream fs = new FileStream(fileName, FileMode.Open);
+            return serializer.Deserialize(fs) as List<Memo>;
         }
 
         /// <summary>

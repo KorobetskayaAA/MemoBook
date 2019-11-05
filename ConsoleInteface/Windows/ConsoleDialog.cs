@@ -12,7 +12,7 @@ namespace ConsoleInterface
     /// </summary>
     public class ConsoleDialog : ConsoleWindow
     {
-        Buttons buttons;
+        readonly Buttons buttons;
         public Button ModalResult { get; private set; } = Button.None;
 
         public ConsoleDialog(string header, Button[] buttons) 
@@ -20,20 +20,13 @@ namespace ConsoleInterface
         {
             this.ContentWidth = Console.WindowWidth - 6;
             this.ContentHeight = 5;
-            this.buttons =  new Buttons(Bottom - 2, ContentLeft, ContentWidth, buttons);
-            Controls.Add(this.buttons);
-            InitializeControls();
-        }
-
-        protected override void InitializeControls()
-        {
-            if (buttons == null)
+            this.buttons = new Buttons(Bottom - 2, ContentLeft, ContentWidth, buttons)
             {
-                return;
-            }
-            this.buttons.Top = Bottom - 2;
-            this.buttons.Left = ContentLeft;
-            this.buttons.Width = ContentWidth;
+                Top = Bottom - 2,
+                Left = ContentLeft,
+                Width = ContentWidth
+            };
+            Controls.Add(this.buttons);
         }
 
         protected override void ProcessKey(ConsoleKeyInfo keyInfo)

@@ -21,7 +21,6 @@ namespace ConsoleInterface
             this.ContentWidth = Console.WindowWidth - 6;
             this.ContentHeight = 5;
             Controls = new List<Control>();
-            InitializeControls();
         }
 
         public bool Centered { get; set; }
@@ -56,7 +55,7 @@ namespace ConsoleInterface
                 }
                 else
                 {
-                    return top;
+                    return left;
                 }
             }
             set
@@ -141,21 +140,17 @@ namespace ConsoleInterface
         }
 
         protected List<Control> Controls { get; }
+
         int activeControl;
         protected int ActiveControl
         {
             get { return activeControl; }
             set
             {
-                Controls[ActiveControl].Selected = false;
+                Controls[activeControl].Selected = false;
                 activeControl = value;
-                Controls[ActiveControl].Selected = true;
+                Controls[activeControl].Selected = true;
             }
-        }
-
-        protected virtual void InitializeControls()
-        {
-            // do nothing
         }
 
         protected virtual void PrintContent()

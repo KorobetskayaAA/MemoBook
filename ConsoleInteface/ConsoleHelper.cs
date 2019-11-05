@@ -62,7 +62,6 @@ namespace ConsoleInterface
                 if (lines[i].Length > width)
                 {
                     string[] words = lines[i].Split(' ');
-                    int splittedCount = lines[i].Length / width + 1;
                     lines[i] = string.Join(" ",
                         words.Take(words.Length / 2 + words.Length % 2));
                     lines.Insert(i + 1, string.Join(" ",

@@ -27,8 +27,10 @@ namespace MemoBookConsole
             Controls[0].Top = ContentTop;
             InputHasDateRange = new InputList("Ограничить диапазон дат:",
                 new List<string>() { "Нет", "Да" },
-                ContentLeft, Controls[0].Bottom + 1, 3);
-            InputHasDateRange.SelectedItem = 1;
+                ContentLeft, Controls[0].Bottom + 1, 3)
+            {
+                SelectedItem = 1
+            };
             Controls.Add(InputHasDateRange);
 
             InputFrom = new InputDateTime("Начальная дата:",
