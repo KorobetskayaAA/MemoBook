@@ -68,13 +68,13 @@ namespace ConsoleInterface.Controls
 
         protected override void WriteContent()
         {
-            int margin = (Width - ButtonWidth * buttons.Length) / buttons.Length / 2;
-
+            int margin = (Width - ButtonWidth * buttons.Length) / buttons.Length;
+            Console.CursorLeft += margin / 2;
             for (int i = 0; i < buttons.Length; i++)
             {
-                Console.CursorLeft += margin;
+                if (i > 0) 
+                    Console.CursorLeft += margin;
                 WriteButton(i);
-                Console.CursorLeft += margin;
             }
         }
 

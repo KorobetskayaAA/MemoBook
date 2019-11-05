@@ -12,14 +12,11 @@ namespace ConsoleInterface
         public ConsoleDialogYesNo(string header, string message)
             : base(header, new[] { Button.Yes, Button.No })
         {
-            this.Message = new TextBlock(ContentLeft, ContentTop, ContentWidth,
-                message);
+            this.Message = new TextBlock(ContentLeft, ContentTop, ContentWidth, message);
+            ContentWidth = Message.Width;
+            Message.Left = ContentLeft;
             Controls.Insert(0, Message);
-            foreach (var control in Controls)
-            {
-                control.Width = Message.Width;
-                control.Left = Left + 1;
-            }
+            FitButtons();
             ActiveControl = 1;
         }
 

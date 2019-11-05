@@ -110,6 +110,7 @@ namespace MemoBookConsole
                 Color = ConsoleHelper.RgbToCosoleColor(Memo.Color)
             };
             Controls.Add(inputColor);
+            FitButtons();
         }
 
         // Элементы управления для ввода и редактирования

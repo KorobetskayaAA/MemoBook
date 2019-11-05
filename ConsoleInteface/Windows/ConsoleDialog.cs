@@ -15,18 +15,21 @@ namespace ConsoleInterface
         readonly Buttons buttons;
         public Button ModalResult { get; private set; } = Button.None;
 
-        public ConsoleDialog(string header, Button[] buttons) 
+        protected void FitButtons()
+        {
+            buttons.Top = Bottom - 2;
+            buttons.Left = ContentLeft;
+            buttons.Width = ContentWidth;
+        }
+
+        public ConsoleDialog(string header, Button[] buttons, int contentWidth = -1, int contentHeight = -1) 
             : base (header)
         {
-            this.ContentWidth = Console.WindowWidth - 6;
-            this.ContentHeight = 5;
-            this.buttons = new Buttons(Bottom - 2, ContentLeft, ContentWidth, buttons)
-            {
-                Top = Bottom - 2,
-                Left = ContentLeft,
-                Width = ContentWidth
-            };
+            this.ContentWidth = contentWidth > 0 ? contentWidth : Console.WindowWidth - 6;
+            this.ContentHeight = contentHeight > 0 ? contentHeight : 5;
+            this.buttons = new Buttons(Bottom - 2, ContentLeft, ContentWidth, buttons);
             Controls.Add(this.buttons);
+            FitButtons();
         }
 
         protected override void ProcessKey(ConsoleKeyInfo keyInfo)

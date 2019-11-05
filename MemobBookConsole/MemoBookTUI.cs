@@ -79,7 +79,7 @@ namespace MemoBookConsole
         }
 
         /// <summary>
-        /// Вывод пункта меню ка экран.
+        /// Вывод пункта меню на экран.
         /// </summary>
         /// <param name="keyOption">С какой клавишей связан.</param>
         void ShowMenuItem(KeyOption keyOption)
@@ -222,7 +222,7 @@ namespace MemoBookConsole
         /// </summary>
         void KeyActionAddNote()
         {
-            var editWindow = new ConsoleNoteWindow(memoBook[memoGrid.SelectedRow]);
+            var editWindow = new ConsoleNoteWindow();
             if (editWindow.ShowModal() == Button.OK)
             {
                 memoBook.AddMemo(editWindow.Memo);

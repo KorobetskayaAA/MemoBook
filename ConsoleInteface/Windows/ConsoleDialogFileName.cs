@@ -15,10 +15,7 @@ namespace ConsoleInterface
             this.inputFileName = new InputFileName("Полный путь к файлу:",
                 ContentLeft, ContentTop, ContentWidth - 1);
             Controls.Insert(0, inputFileName);
-            foreach (var control in Controls)
-            {
-                control.Left = Left + 1;
-            }
+            FitButtons();
             ActiveControl = 0;
         }
 
