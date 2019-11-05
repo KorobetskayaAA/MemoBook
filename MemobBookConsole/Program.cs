@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MemoBookLibrary;
 
+#nullable enable
+
 namespace MemoBookConsole
 {
     class Program
